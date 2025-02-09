@@ -108,18 +108,18 @@ td a:hover {
     <div>
         <form method="POST" action="/url">
             <label>Enter the Original Url</label>
-            <input type="text" name="url"  placeholder="Enter the URL" required>
+            <input type="text" name="url"  placeholder="Enter the redirect URL" required>
             <button type="submit">Generate</button>
         </form>
     </div> 
 
     <div>
-        <% if(locals.urls && urls.length > 0) { %>
+        <% if(locals.urls) { %>
             <table>
                 <thead>
                     <tr>
                         <th>S no.</th>
-                        <th>Short Id</th>
+                        <th>Short URL</th>
                         <th>Redirects</th>
                         <th>Clicks</th>
                     </tr>

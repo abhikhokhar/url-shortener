@@ -4,6 +4,9 @@ const connectDB = require('./connection');
 const URL = require('./modals/url.modal');
 const path = require('path')
 const staticRouter = require('./routes/staticRoute')
+const userRouter = require('./routes/user')
+const cookieParser = require('cookie-parser');
+const { restrictToLoggedInUsers, checkAuth } = require('./middlewares/auth');
 
 const PORT = 3001;
 const app = express()
@@ -21,7 +24,10 @@ app.set("views", path.resolve("./views"))
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use("/url", urlRouter)
+app.use(cookieParser())
+app.use("/url", restrictToLoggedInUsers, urlRouter)
+app.use("/user", userRouter)
+app.use("/", checkAuth, staticRouter)
 
 app.get("/:shortId", async (req,res)=>{
     const shortId = req.params.shortId;
@@ -30,6 +36,6 @@ app.get("/:shortId", async (req,res)=>{
     res.redirect(entry.redirectURL)
 })
 
-app.use("/", staticRouter)
 
-app.listen(PORT,()=>{console.log(`server is running at port ${PORT}`)})
+
+app.listen(PORT,()=>{console.log(`server is running at port ${PORT}`)});

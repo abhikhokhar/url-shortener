@@ -9,13 +9,10 @@ async function handleNewUrl(req, res){
     await URL.create({
         shortId: shortId,
         redirectURL: body.url,
-        visitHistory: []
+        visitHistory: [],
+        createdBy: req.user.id
     })
-    const allUrls = await URL.find({})
-    return res.render("home",{
-        urls: allUrls,
-        id: shortId
-    })
+    res.redirect("/");
     
 }
 
