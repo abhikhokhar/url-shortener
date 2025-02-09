@@ -5,7 +5,13 @@ A simple yet powerful **URL Shortener** built with **Node.js**, **Express**, and
 ## Features 🌟
 - **Shorten long URLs** instantly
 - **Track click analytics** for each link
+- ![image](https://github.com/user-attachments/assets/bf7d5bfd-99f5-4963-abb4-f14be1ce223e)
+
 - **JWT authentication** for secure access
+- ![image](https://github.com/user-attachments/assets/581ae268-9233-4e82-84f2-e7798e986248)
+- 
+- ![image](https://github.com/user-attachments/assets/f5216eaf-ef38-42ad-8ca9-516bdb0b1ca5)
+
 - **MongoDB database** for storing links & user data
 - **Beautiful and responsive UI**
 
